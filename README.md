@@ -1,2 +1,2 @@
-# ocatve-multiscale
-An octave package for multi level algorithms including Gaussian pyramids and multigrid solvers
+# octave-multiscale
+A package for GNU Octave that implements multi level algorithms including Gaussian/Laplacian pyramids and multigrid solver
