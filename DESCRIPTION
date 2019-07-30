@@ -1,0 +1,11 @@
+Name: multiscale
+Version: 0.2.0
+Date: 2019-07-30
+Author: Ron Goldman, <wrong.old.man@gmail.com>
+Maintainer: Ron Goldman, <wrong.old.man@gmail.com>
+Title: Multi-level methods for GNU Octave
+Description: This package provides Gaussian and Laplacian pyramid methods
+ and MultiGrid solver of a 3x3 stencil poisson equation.
+Depends: Octave (>= 2.9.7)
+Autoload: no
+License: GPL version 3 or later
