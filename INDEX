@@ -2,3 +2,10 @@ toolbox >> multiscale
 Category Multigrid
  mgsolve
  mgset
+Category Pyramid
+ pyramid
+ lpyramid
+ expand
+ collapse
+Category General
+ mid
