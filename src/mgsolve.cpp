@@ -14,7 +14,7 @@ Perform multi-grid relaxation to solve the symmetric elliptic equation\n\
 @end group\n\
 Where @var{u0} and @var{f} are MxN matrices representing the initial guess and non-homogenious RHS.\n\
 @var{L} is a (M,N,9) representation of finite difference 3x3 stencil\n\
-@infotex\n\
+@ifnottex\n\
 \n\
 @example\n\
 @group\n\
@@ -24,7 +24,7 @@ Lu(i,j) = L(i,j,9)*u(i-1,j+1)+L(i,j,2)*u(i,j+1)+L(i,j,3)*u(i+1,j+1)\n\
 @end group\n\
 @end example\n\
 \n\
-@end infotex\n\
+@end ifnottex\n\
 Note that u is zero-padded for convinience but boundary conditions should be provided by @var{L} and @var{f} \n\
 @end deftypefn") 
 {
@@ -116,7 +116,7 @@ static bool is_bad_args(const octave_value_list& args) {
   return true;
  }
  if (args.length()==4) {
-  if (! args(3).is_map()) {
+  if (! args(3).isstruct()) {
    error("Fourth argument is no a structure.");
    return true;
   }
@@ -133,7 +133,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  octave_value par = mgs.getfield("Tol");
- if(!(par.is_empty()||par.is_numeric_type())){
+ if(!(par.isempty()||par.isnumeric())){
   error("Tol is not numeric type");
   return false;
  }
@@ -142,7 +142,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("FrontIterations");
- if(!(par.is_empty()||par.is_numeric_type())){
+ if(!(par.isempty()||par.isnumeric())){
   error("FrontIterations must be an integer");
   return false;
  }
@@ -151,7 +151,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("BackIterations");
- if(!(par.is_empty()||par.is_numeric_type())){
+ if(!(par.isempty()||par.isnumeric())){
   error("BackIterations must be an integer");
   return false;
  }
@@ -160,7 +160,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("InnerIterations");
- if(!(par.is_empty()||par.is_numeric_type())){
+ if(!(par.isempty()||par.isnumeric())){
   error("InnerIterations must be an integer");
   return false;
  }
@@ -169,7 +169,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("MaxIterations");
- if(!(par.is_empty()||par.is_numeric_type())){
+ if(!(par.isempty()||par.isnumeric())){
   error("MaxIterations must be an integer");
   return false;
  }
@@ -178,7 +178,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("FrontRelaxation");
- if(!(par.is_empty()||par.is_string())){
+ if(!(par.isempty()||par.is_string())){
   error("FrontRelaxation must be a string");
   return false;
  }
@@ -187,7 +187,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("BackRelaxation");
- if(!(par.is_empty()||par.is_string())){
+ if(!(par.isempty()||par.is_string())){
   error("BackRelaxation must be a string");
   return false;
  }
@@ -196,7 +196,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("NormControl");
- if(!(par.is_empty()||par.isinf().bool_value()||par.int_value()==2)){
+ if(!(par.isempty()||par.isinf().bool_value()||par.int_value()==2)){
   error("NormControl must be 2 or inf");
   return false;
  }
@@ -205,7 +205,7 @@ static bool is_valid_mgs(octave_scalar_map mgs){
   return false;
  }
  par = mgs.getfield("Verbose");
- if(!(par.is_empty()||par.is_bool_type())){
+ if(!(par.isempty()||par.islogical())){
   error("Verbose must be boolean");
   return false;
  }

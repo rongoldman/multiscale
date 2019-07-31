@@ -78,23 +78,23 @@ MultiGridSetting::MultiGridSetting(){
 }
 MultiGridSetting::MultiGridSetting(octave_scalar_map mgs){
  Array<int> val = mgs.getfield("MaxIterations").int_vector_value();
- maxIterations=(!val.is_empty())?val(0):200;
+ maxIterations=(!val.isempty())?val(0):200;
  val = mgs.getfield("InnerIterations").int_vector_value();
- innerIterations=(!val.is_empty())?val(0):20;
+ innerIterations=(!val.isempty())?val(0):20;
  val = mgs.getfield("FrontIterations").int_vector_value();
- frontIterations=(!val.is_empty())?val(0):1;
+ frontIterations=(!val.isempty())?val(0):1;
  val = mgs.getfield("BackIterations").int_vector_value();
- backIterations=(!val.is_empty())?val(0):1;
+ backIterations=(!val.isempty())?val(0):1;
  Array<double> rval=mgs.getfield("Tol").vector_value();
- tolerance=(!rval.is_empty())?rval(0):0.0;
+ tolerance=(!rval.isempty())?rval(0):0.0;
  octave_value oval = mgs.getfield("NormControl");
- absNorm=(!oval.is_empty())?oval.isinf().bool_value():false;
+ absNorm=(!oval.isempty())?oval.isinf().bool_value():false;
  oval = mgs.getfield("FrontRelaxation");
- frontRelaxation = (!oval.is_empty())?parseRelaxation(oval.string_value()):defaultRelaxation;
+ frontRelaxation = (!oval.isempty())?parseRelaxation(oval.string_value()):defaultRelaxation;
  oval = mgs.getfield("BackRelaxation");
- backRelaxation = (!oval.is_empty())?parseRelaxation(oval.string_value()):defaultRelaxation;
+ backRelaxation = (!oval.isempty())?parseRelaxation(oval.string_value()):defaultRelaxation;
  oval = mgs.getfield("Verbose");
- verbose=(!oval.is_empty())?oval.bool_value():false;
+ verbose=(!oval.isempty())?oval.bool_value():false;
 }
 ostream& operator<< (ostream& o, MultiGridSetting& mgs) {
  o<<"Set to run V-cycle ("; 
