@@ -12,8 +12,8 @@ Perform multi-grid relaxation to solve the symmetric elliptic equation\n\
 @group\n\
 @var{L}@var{u} = @var{f}.\n\
 @end group\n\
-Where @var{u0} and @var{f} are MxN matrices representing the initial guess and non-homogenious RHS.\n\
-@var{L} is a (M,N,9) representation of finite difference 3x3 stencil\n\
+Where @var{u0} and @var{f} are MxN matrices of an initial guess and the RHS.\n\
+@var{L} is a MxNx9 representation of finite difference 3x3 stencil\n\
 @ifnottex\n\
 \n\
 @example\n\

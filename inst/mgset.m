@@ -91,7 +91,6 @@
 ## Field names that are not in the above list are also accepted and
 ## added to the result structure.
 ##
-## @seealso{mgget}
 ## @end deftypefn
 
 function mgstruct = mgset (varargin)
